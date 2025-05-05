@@ -75,7 +75,12 @@ struct QuizView: View {
                     .pickerStyle(.segmented)
                     
                     // Show previous outcomes
-                    List(viewModel.history) { currentResult in
+                    List(
+                        filtering(
+                            originalList: viewModel.history,
+                            on: viewModel.selectedOutcomeFilter
+                        )
+                    ) { currentResult in
                         
                         HStack {
 
